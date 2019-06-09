@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const path = require('path');
 
 const configDB = require('./config/configDB');
+const routes = require('./routes');
 
 const app = express();
 const port = process.env.PORT || 4000;
@@ -17,6 +18,10 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'Connection Error:'));
 db.once('open', () => console.log("Connected to DB!"));
 
+
+// Routes
+app.use('/', routes);
+
 // Serving the React app
 // Static Folders
 if (process.env.NODE_ENV === 'production') {
@@ -29,4 +34,4 @@ app.get('*', (req, res) => {
 
 app.get('/react', (req, res) => res.send({ wowMessage: 'Hello React World!' }));
 
-app.listen(port, () => console.log(`BTW __dirname ${__dirname} Express app listening on port ${port}!`))
+app.listen(port, () => console.log(`Express app listening on port ${port}!`))
