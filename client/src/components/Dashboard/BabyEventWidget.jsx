@@ -2,12 +2,13 @@ import React from 'react'
 
 // Components
 import BabyEventButton from './BabyEventButton';
+import BabyEventLegend from './BabyEventLegend';
 
 const BabyEventWidget = props => {
     return (
         <div>
             <BabyEventButton icon={props.icon} type={props.type}/>
-            <p>Last time was ...</p>
+            <BabyEventLegend type={props.type} />
         </div>
     )
 }
