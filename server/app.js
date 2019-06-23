@@ -1,9 +1,9 @@
 const cors = require('cors');
 const express = require('express');
-const mongoose = require('mongoose');
+//const mongoose = require('mongoose');
+const mongoConnect = require('./utils/db').mongoConnect;
 const path = require('path');
 
-const configDB = require('./config/configDB');
 const routes = require('./routes');
 
 const app = express();
@@ -13,11 +13,10 @@ const port = process.env.PORT || 4000;
 app.use(cors());
 
 // Mongoose setup
-mongoose.connect(`mongodb+srv://${configDB.usr}:${configDB.pwd}@babypatrolcluster-uel9p.mongodb.net/test?retryWrites=true&w=majority`, {useNewUrlParser: true});
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'Connection Error:'));
-db.once('open', () => console.log("Connected to DB!"));
-
+// mongoose.connect(`mongodb+srv://${configDB.usr}:${configDB.pwd}@babypatrolcluster-uel9p.mongodb.net/test?retryWrites=true&w=majority`, {useNewUrlParser: true});
+// const db = mongoose.connection;
+// db.on('error', console.error.bind(console, 'Connection Error:'));
+// db.once('open', () => console.log("Connected to DB!"));
 
 // Routes
 app.use('/', routes);
@@ -34,4 +33,7 @@ app.get('*', (req, res) => {
 
 app.get('/react', (req, res) => res.send({ wowMessage: 'Hello React World!' }));
 
-app.listen(port, () => console.log(`Express app listening on port ${port}!`))
+mongoConnect(() => {
+    app.listen(port, () => console.log(`Listening on port ${port}`));
+  });
+  

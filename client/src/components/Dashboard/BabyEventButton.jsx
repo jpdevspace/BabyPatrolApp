@@ -7,9 +7,8 @@ const BabyEventButton = props => {
 
     const handleClick = (e) => {
         e.preventDefault();
-        API
-            .createNewEvent({ isThisNew: "yeeees" })
-            .then(res => console.log("Res >>>", res))
+        API.createNewEvent({ type })
+        .then(res => console.log("Res >>>", res))
     };
 
     return (
