@@ -5,4 +5,6 @@ export default {
     createNewEvent: query => axios.post('/event', query),
     // Get last event
     getLastEvent: query => axios.get(`/lastEvent/${query.type}`),
+    // Get last five days of events
+    getLastFiveDays: () => axios.get('/events/5')
 };

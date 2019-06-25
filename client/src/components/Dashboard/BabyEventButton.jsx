@@ -3,12 +3,12 @@ import React from 'react';
 import API from '../../utils/API';
 
 const BabyEventButton = props => {
-    const { type, icon } = props;
+    const { type, icon, newEvent } = props;
 
     const handleClick = (e) => {
         e.preventDefault();
         API.createNewEvent({ type })
-        .then(res => console.log("Res >>>", res))
+            .then(res => newEvent(type))
     };
 
     return (

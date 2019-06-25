@@ -8,5 +8,6 @@ const babyEvents = require('../controllers/babyEvents');
 // Routes
 router.post('/event', babyEvents.create);
 router.get('/lastEvent/:type', babyEvents.getLast);
+router.get('/events/:range', babyEvents.getEvents);
 
 module.exports = router;
