@@ -17,6 +17,16 @@ class BabyEvents {
             });
     }
 
+    static getAll() {
+        const db = getDb();
+        return db.collection('babyEvents').find({})
+            .then(res => res)
+            .catch(err => {
+                console.error("Error retrieving all docs from DB >>>", err);
+                throw 'Error';
+            });
+    }
+
     static getLast(type) {
         const db = getDb();
         return db.collection('babyEvents')
@@ -24,13 +34,13 @@ class BabyEvents {
             .sort({ _id: -1 }) // ids have timestamp embedded
             .next()
             .then(res => res)
-            .catch(err => console.error("Err from db >>>", err))
+            .catch(err => err)
     }
 
     static getLastFiveDays() {
         const db = getDb();
         const fiveDaysAgo = subDays(new Date(), 5);
-        console.log("5 >>>", fiveDaysAgo);
+
         return db.collection('babyEvents')
             .find({ 
                 date: {
@@ -38,9 +48,9 @@ class BabyEvents {
                 }
             })
             .sort({ _id: -1 }) // ids have timestamp embedded
-            .next()
+            .toArray()
             .then(res => res)
-            .catch(err => console.error("Err from db >>>", err))
+            .catch(err => err)
     }
 }; 
 

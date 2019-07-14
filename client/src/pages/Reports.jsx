@@ -1,21 +1,26 @@
 import React, { Component } from 'react'
 
-import API, { getLastFiveDays } from '../utils/API';
+import API  from '../utils/API';
+
+// Components
+import ReportTable from '../components/Reports/ReportTable'
 
 class Reports extends Component {
     state = {
-
+        lastFiveDays: []
     }
 
     componentDidMount = () => {
         API.getLastFiveDays()
-            .then(res => console.log("Data >>>", res))
+            .then(res => this.setState({ lastFiveDays: res.data.dbRes }))
+            .catch(err => console.error("Errrrroor >>>", err));
     }
 
     render = () => {
         return (
             <div>
                 <h1>Reports</h1>
+                <ReportTable data={this.state.lastFiveDays} />
             </div>
         )
     }
