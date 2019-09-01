@@ -90,3 +90,5 @@ typings/
 config/
 
 babypatrol.code-workspace
+
+server/

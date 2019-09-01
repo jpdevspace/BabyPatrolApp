@@ -1,9 +1,9 @@
 import React from 'react';
 
-import BabyEventWidget from '../components/Dashboard/BabyEventWidget';
-import BabyEventWidgetcontainer from '../components/Dashboard/BabyEventWidgetContainer';
+import BabyEventWidget from './BabyEventWidget';
+import BabyEventWidgetcontainer from './BabyEventWidgetContainer';
 
-import allActivities from '../config/activities';
+import allActivities from '../../config/activities';
 
 const Dashboard = (props) => {
     return (

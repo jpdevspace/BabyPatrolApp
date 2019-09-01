@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './auth.css';
 
-import { registerUser } from '../controllers/firebaseAuth';
+import { registerUser } from '../../controllers/firebaseAuth';
 
 class Register extends Component {
   state = {
@@ -30,8 +30,8 @@ class Register extends Component {
             👶 👶🏽 👶🏻 👶🏾 👶🏼 👶🏿 👶🏽
           </span>
           <h1 className="h3 mb-3 font-weight-normal">Register</h1>
-          <label htmlFor="inputEmail" className="sr-only">
-            Email
+          <label htmlFor="inputBabyName" className="sr-only">
+            Baby Name
           </label>
           <input
             onChange={this.handleChange}
@@ -41,6 +41,8 @@ class Register extends Component {
             className="form-control"
             placeholder="Baby's Name"
           />
+
+
           <input
             onChange={this.handleChange}
             type="email"
