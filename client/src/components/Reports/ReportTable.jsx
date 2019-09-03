@@ -6,27 +6,25 @@ import activities from "../../config/activities";
 const ReportTable = props => {
   const getEmoji = activityString =>
     activities.filter(act => act.label === activityString)[0].icon;
-  console.log("props.data", props.data)
+
   let rows = (
     <tr>
       <td>Loading...</td>
     </tr>
   );
-	
-	if (!props.data || props.data.length === 0) {
-		rows = (
-			<tr>
-				<td>No data available</td>
-			</tr>
-		)
-	}
 
-	if (props.data && props.data.length) {
+  if (!props.data || props.data.length === 0) {
+    rows = (
+      <tr>
+        <td>No data available</td>
+      </tr>
+    );
+  }
+
+  if (props.data && props.data.length) {
     let prevRowData = "";
 
     rows = props.data.map((row, i) => {
-      console.log("time >>>", row.time.toDate())
-      console.log("isSame >>>", isSameDay(row.time.toDate(), prevRowData))
       if (isSameDay(row.time.toDate(), prevRowData)) {
         return (
           <tr key={i}>

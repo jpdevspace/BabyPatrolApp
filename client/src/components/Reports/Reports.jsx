@@ -1,21 +1,11 @@
-import React, { Fragment, useEffect, useState, useContext } from "react";
-import { loadBabyRecords } from "../../controllers/firebaseDB";
+import React, { Fragment, useContext } from "react";
 import { BabyRecordsContext } from "../../contexts/BabyRecordsContext";
 
 // Components
 import ReportTable from "./ReportTable";
 
 const Reports = props => {
-  // const [ babyRecords, setBabyRecords ] = useState([]);
   const { babyRecords } = useContext(BabyRecordsContext);
-
-  // useEffect(() => {
-  // 	const getAllRecords = async () => {
-  // 		const records = await loadBabyRecords();
-  // 		setBabyRecords(records);
-  // 	};
-  // 	getAllRecords();
-  // }, []);
 
   return (
     <Fragment>
