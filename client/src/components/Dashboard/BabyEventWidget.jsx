@@ -1,24 +1,13 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { BabyRecordsContext } from "../../contexts/BabyRecordsContext";
 import { differenceInMinutes, format } from "date-fns";
-
-import API from "../../utils/API";
 
 // Components
 import BabyEventButton from "./BabyEventButton";
 import BabyEventLegend from "./BabyEventLegend";
 
 const BabyEventWidget = props => {
-  // state = {
-  //   lastEventDate: "",
-  //   agoString: "No records for this activity yet"
-  // };
-
   const { lastRecords } = useContext(BabyRecordsContext);
-  const [lastEventDate, setLastEventDate] = useState("");
-  const [agoString, setAgoString] = useState(
-    "No records for this activity yet"
-  );
 
   const buildAgoString = targetDate => {
     if (targetDate) {

@@ -1,7 +1,5 @@
 import React from "react";
 
-import API from "../../utils/API";
-
 const BabyEventButton = props => {
   const { type, icon, newEvent } = props;
 
