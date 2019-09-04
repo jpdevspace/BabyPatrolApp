@@ -13,7 +13,7 @@ export const loadBabyRecordsByTimeAsc = () => {
       } catch (err) {
         return reject(err)
       }
-    })
+    });
 };
 
 export const loadBabyLastRecords = () => {
@@ -75,4 +75,18 @@ export const loadBabyLastRecords = () => {
       return reject(err);
     }
   });
-}
+};
+
+export const addBabyRecords = (type, comment) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      await db.collection("events").add({
+        comment,
+        time: new Date(),
+        type,
+      });
+    } catch (err) {
+      return reject(err);
+    }
+  });
+};

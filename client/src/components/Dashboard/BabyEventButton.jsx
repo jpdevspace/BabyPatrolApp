@@ -1,4 +1,5 @@
 import React from "react";
+import { addBabyRecords } from "../../controllers/firebaseDB";
 
 const BabyEventButton = props => {
   const { type, icon, newEvent } = props;
@@ -7,7 +8,7 @@ const BabyEventButton = props => {
     e.preventDefault();
     // TODO JP: Create Firebase function to handle new
     // API.createNewEvent({ type }).then(res => newEvent(type));
-    console.log("new event diiing!!!!");
+    addBabyRecords(type, "no comments yet");
   };
 
   return (
