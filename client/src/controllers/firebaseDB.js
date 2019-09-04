@@ -77,14 +77,10 @@ export const loadBabyLastRecords = () => {
   });
 };
 
-export const addBabyRecords = (type, comment) => {
+export const addBabyRecords = ({ comment, time, type }) => {
   return new Promise(async (resolve, reject) => {
     try {
-      await db.collection("events").add({
-        comment,
-        time: new Date(),
-        type,
-      });
+      await db.collection("events").add({ comment, time, type });
     } catch (err) {
       return reject(err);
     }

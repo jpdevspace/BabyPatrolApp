@@ -6,9 +6,14 @@ const BabyEventButton = props => {
 
   const handleClick = e => {
     e.preventDefault();
-    // TODO JP: Create Firebase function to handle new
-    // API.createNewEvent({ type }).then(res => newEvent(type));
-    addBabyRecords(type, "no comments yet");
+    const newBabyRec = {
+      comment: "no comments",
+      time: new Date(),
+      type
+    };
+
+    addBabyRecords(newBabyRec); // Updates Firebase
+    newEvent(newBabyRec); // Updates context
   };
 
   return (

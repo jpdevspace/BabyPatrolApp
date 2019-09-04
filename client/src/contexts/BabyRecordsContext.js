@@ -16,12 +16,15 @@ const BabyRecordsContextProvider = props => {
 
     getAllRecordsByTimeAsc();
     getLastRecordByActivity();
-  }, []);
+  }, [ babyRecords ]);
 
   // TODO JP: I will probably need a method to add new activities
+  const newEventAdded = (newBabyRec ) => {
+    setBabyRecords([...babyRecords, newBabyRec]);
+  };
 
   return (
-    <BabyRecordsContext.Provider value={{ babyRecords, lastRecords }}>
+    <BabyRecordsContext.Provider value={{ babyRecords, lastRecords, newEventAdded }}>
       {props.children}
     </BabyRecordsContext.Provider>
   );

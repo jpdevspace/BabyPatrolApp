@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import { BabyRecordsContext } from "../../contexts/BabyRecordsContext";
-import { differenceInMinutes, format } from "date-fns";
+import { differenceInMinutes } from "date-fns";
 
 // Components
 import BabyEventButton from "./BabyEventButton";
 import BabyEventLegend from "./BabyEventLegend";
 
 const BabyEventWidget = props => {
-  const { lastRecords } = useContext(BabyRecordsContext);
+  const { lastRecords, newEventAdded } = useContext(BabyRecordsContext);
 
   const buildAgoString = targetDate => {
     if (targetDate) {
@@ -27,12 +27,6 @@ const BabyEventWidget = props => {
     return "No time available for this event";
   };
 
-  const handleNewEvent = type =>
-    this.setState({
-      agoString: "just now.",
-      lastEventDate: format(new Date(), "MMM D YYYY h:mm A")
-    });
-
   const lastBabyActivity = lastRecords
     ? lastRecords[props.type].time.toDate()
     : null;
@@ -40,7 +34,7 @@ const BabyEventWidget = props => {
   return (
     <div>
       <BabyEventButton
-        newEvent={handleNewEvent}
+        newEvent={newBabyRec => newEventAdded(newBabyRec)}
         icon={props.icon}
         type={props.type}
       />
