@@ -1,5 +1,6 @@
 import React from "react";
 import { addBabyRecords } from "../../controllers/firebaseDB";
+import firebase from "../../config/firebaseConfig";
 
 const BabyEventButton = props => {
   const { type, icon, newEvent } = props;
@@ -7,8 +8,8 @@ const BabyEventButton = props => {
   const handleClick = e => {
     e.preventDefault();
     const newBabyRec = {
-      comment: "no comments",
-      time: new Date(),
+      comment: "fire",
+      time: new firebase.firestore.Timestamp.fromDate(new Date()),
       type
     };
 

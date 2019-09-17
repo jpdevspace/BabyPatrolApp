@@ -26,10 +26,11 @@ const BabyEventWidget = props => {
     }
     return "No time available for this event";
   };
-
-  const lastBabyActivity = lastRecords
-    ? lastRecords[props.type].time.toDate()
-    : null;
+  console.log("lastRecords >>>", lastRecords);
+  let lastBabyActivity = null;
+  if (lastRecords && lastRecords[props.type]) {
+    lastBabyActivity = lastRecords[props.type].time.toDate();
+  }
 
   return (
     <div>

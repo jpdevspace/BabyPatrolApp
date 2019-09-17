@@ -9,18 +9,30 @@ export const BabyRecordsContext = createContext();
 const BabyRecordsContextProvider = props => {
   const [ babyRecords, setBabyRecords ] = useState([]);
   const [ lastRecords, setLastRecords ] = useState(null);
+  /*
+  lastRecords: {
+    feed: { comment, time, type },
+    pee: { comment, time, type },
+    poop: { comment, time, type },
+    sleep: { comment, time, type }
+  }
+  */
 
   useEffect(() => {
+    console.log("useEffect() [BabyRecordsContext]");
     const getAllRecordsByTimeAsc = async () => setBabyRecords(await loadBabyRecordsByTimeAsc());
     const getLastRecordByActivity = async () => setLastRecords(await loadBabyLastRecords());
 
     getAllRecordsByTimeAsc();
     getLastRecordByActivity();
-  }, [ babyRecords ]);
+  }, []);
 
-  // TODO JP: I will probably need a method to add new activities
   const newEventAdded = (newBabyRec ) => {
     setBabyRecords([...babyRecords, newBabyRec]);
+    setLastRecords({
+      ...lastRecords,
+      [newBabyRec.type]: newBabyRec 
+    })
   };
 
   return (

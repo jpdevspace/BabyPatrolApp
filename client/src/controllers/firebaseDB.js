@@ -2,6 +2,17 @@ import firebase from "../config/firebaseConfig";
 
 const db = firebase.firestore();
 
+// Auth State Observer
+firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+    console.log("User Info >>>", user);
+    // Run isAuthed context method
+  } else {
+    // Run Logout context method
+    console.log("No User");
+  }
+});
+
 export const loadBabyRecordsByTimeAsc = () => {
   let res = [];
     return new Promise(async (resolve, reject) => {
@@ -18,10 +29,10 @@ export const loadBabyRecordsByTimeAsc = () => {
 
 export const loadBabyLastRecords = () => {
   let lastRecordsByType = {
-    feed: "",
-    pee: "",
-    poop: "",
-    sleep: ""
+    feed: null,
+    pee: null,
+    poop: null,
+    sleep: null
   };
 
   return new Promise(async (resolve, reject) => {
@@ -86,3 +97,26 @@ export const addBabyRecords = ({ comment, time, type }) => {
     }
   });
 };
+
+export const registerUser = (email, password, babyName) => {
+  console.log("registerUser()");
+  return new Promise(async (resolve, reject) => {
+    try {
+      const newUserInfo =  await firebase.auth().createUserWithEmailAndPassword(email, password);
+      
+      if (newUserInfo) {
+        await db
+          .collection("users")
+          .doc(newUserInfo.user.uid)
+          .set({ babyName });
+        
+        return resolve(newUserInfo.user.uid);
+      }
+  
+    } catch (err) {
+      console.error(`Error at registerUser() \n Error Code: ${err.code} \n Msg: ${err.message}`)
+      return reject(false);
+    }
+  });
+  
+}
