@@ -6,9 +6,9 @@ const db = firebase.firestore();
 firebase.auth().onAuthStateChanged(user => {
     if (user) {
     console.log("User Info >>>", user);
-    // Run isAuthed context method
+    // TODO JP: Run isAuthed context method
   } else {
-    // Run Logout context method
+    // TODO JP: Run Logout context method
     console.log("No User");
   }
 });
@@ -98,25 +98,43 @@ export const addBabyRecords = ({ comment, time, type }) => {
   });
 };
 
+/*
+First register the new user, then create a new collection called "users"
+and put the baby name in it, in the future this collection will hold additional 
+user info
+*/
 export const registerUser = (email, password, babyName) => {
   console.log("registerUser()");
-  return new Promise(async (resolve, reject) => {
-    try {
-      const newUserInfo =  await firebase.auth().createUserWithEmailAndPassword(email, password);
+  return firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then(newUserInfo => {
+      db
+        .collection("users")
+        .doc(newUserInfo.user.uid)
+        .set({ babyName });
       
-      if (newUserInfo) {
-        await db
-          .collection("users")
-          .doc(newUserInfo.user.uid)
-          .set({ babyName });
-        
-        return resolve(newUserInfo.user.uid);
-      }
-  
-    } catch (err) {
+      return newUserInfo.user.uid;
+    })
+    .catch(err => {
       console.error(`Error at registerUser() \n Error Code: ${err.code} \n Msg: ${err.message}`)
-      return reject(false);
-    }
-  });
-  
+      return false;
+    });
+}
+
+export const loginUser = (email, password) => {
+  return firebase.auth().signInWithEmailAndPassword(email, password)
+    .catch(err => {
+      console.error(`Error at loginUser() \n Error Code: ${err.code} \n Msg: ${err.message}`)
+      return false;
+    })
+}
+
+export const logoutUser = () => {
+  firebase.auth().signOut()
+    .then(() => {
+    // Sign-out successful.
+    console.log("Sign-out successful.")
+    })
+    .catch(err => {
+      console.error(`Error at logoutUser() \n Error Code: ${err.code} \n Msg: ${err.message}`)
+    })
 }

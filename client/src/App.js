@@ -5,8 +5,9 @@ import AuthContextProvider from "./contexts/AuthContext";
 import "./App.css";
 
 // Components
+import Home from "./components/Layout/Home";
 import Dashboard from "./components/Dashboard/Dashboard";
-import Layout from "./layout/Layout";
+import Layout from "./components/Layout/Layout";
 import Login from "./components/Auth/Login.jsx";
 import Register from "./components/Auth/Register.jsx";
 import Reports from "./components/Reports/Reports.jsx";
@@ -17,7 +18,8 @@ const App = () => (
       <BabyRecordsContextProvider>
         <Layout>
           <Switch>
-            <Route exact path="/" component={Dashboard} />
+            <Route exact path="/" component={Home} />
+            <Route path="/dashboard" component={Dashboard} />
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
             <Route path="/reports" component={Reports} />

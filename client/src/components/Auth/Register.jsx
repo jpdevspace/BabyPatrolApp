@@ -25,15 +25,13 @@ const Register = props => {
     const formValidated = true; // TODO JP: password length, all fields filled, etc...
 
     if (formValidated) {
-      const uid = registerUser(
+      registerUser(
         registerInfo.email,
         registerInfo.password,
         registerInfo.babyName
-      );
-
-      if (uid) {
-        userLoggedIn(uid);
-      }
+      )
+        .then(uid => userLoggedIn(uid))
+        .catch(err => console.error(`Error at registerUser() [Register.jsx]`));
     }
   };
 
