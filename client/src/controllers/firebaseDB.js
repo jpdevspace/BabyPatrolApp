@@ -5,11 +5,9 @@ const db = firebase.firestore();
 // Auth State Observer
 firebase.auth().onAuthStateChanged(user => {
     if (user) {
-    console.log("User Info >>>", user);
-    // TODO JP: Run isAuthed context method
+    console.log("[onAuthStateChanged] True");
   } else {
-    // TODO JP: Run Logout context method
-    console.log("No User");
+    console.log("[onAuthStateChanged] False");
   }
 });
 

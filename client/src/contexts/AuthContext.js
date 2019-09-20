@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useState } from "react";
 
 export const AuthContext = createContext();
 
@@ -6,7 +6,7 @@ const AuthContextProvider = props => {
   const [ isAuthed, setIsAuthed ] = useState(false);
 
   const userLoggedIn = uid => {
-    console.log("userLoggedIn uid >>>", uid);
+    console.log("userLoggedIn");
     localStorage.setItem("babyPatrolUID", uid);
     setIsAuthed(true);
   }

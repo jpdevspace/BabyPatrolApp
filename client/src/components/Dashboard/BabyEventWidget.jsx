@@ -26,8 +26,9 @@ const BabyEventWidget = props => {
     }
     return "No time available for this event";
   };
-  console.log("lastRecords >>>", lastRecords);
+
   let lastBabyActivity = null;
+
   if (lastRecords && lastRecords[props.type]) {
     lastBabyActivity = lastRecords[props.type].time.toDate();
   }

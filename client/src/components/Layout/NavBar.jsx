@@ -4,11 +4,10 @@ import { AuthContext } from "../../contexts/AuthContext";
 
 const NavBar = props => {
   const { isAuthed, userLoggedIn, userLoggedOut } = useContext(AuthContext);
+
   // Check if user was loggedIn before
-
-  console.log("isAuthed >>>", isAuthed);
-
   useEffect(() => {
+    console.log("useEffect()");
     const loggedInBefore = localStorage.getItem("babyPatrolUID");
 
     if (loggedInBefore) {
