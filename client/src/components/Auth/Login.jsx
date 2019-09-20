@@ -1,11 +1,12 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
+import { Redirect } from "react-router-dom";
 import "./auth.css";
 
 import { loginUser } from "../../controllers/firebaseDB";
 
 const Login = props => {
-  const { userLoggedIn } = useContext(AuthContext);
+  const { isAuthed, userLoggedIn } = useContext(AuthContext);
   const [loginInfo, setLoginInfo] = useState({
     email: "",
     password: ""
@@ -29,11 +30,18 @@ const Login = props => {
     }
   };
 
+  const redirectAuthedUser = () => {
+    if (isAuthed) {
+      return <Redirect to="/dashboard" />;
+    }
+  };
+
   return (
     <div id="loginPage">
       <span id="loginImage" role="img" aria-label="baby bottle">
         👶 👶🏽 👶🏻 👶🏾 👶🏼 👶🏿 👶🏽
       </span>
+      {redirectAuthedUser()}
       <form className="form-login" onSubmit={handleSubmit}>
         <h1 className="h3 mb-3 font-weight-normal">Login</h1>
         <label htmlFor="email" className="sr-only">
