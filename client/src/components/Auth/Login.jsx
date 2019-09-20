@@ -24,17 +24,17 @@ const Login = props => {
 
     if (formValidated) {
       loginUser(loginInfo.email, loginInfo.password)
-        .then(uid => userLoggedIn(uid))
+        .then(res => userLoggedIn(res.user.uid))
         .catch(err => console.error(`Error at registerUser() [Register.jsx]`));
     }
   };
 
   return (
-    <div id="loginPage" className="text-center">
+    <div id="loginPage">
+      <span id="loginImage" role="img" aria-label="baby bottle">
+        👶 👶🏽 👶🏻 👶🏾 👶🏼 👶🏿 👶🏽
+      </span>
       <form className="form-login" onSubmit={handleSubmit}>
-        <span id="loginImage" role="img" aria-label="baby bottle">
-          👶 👶🏽 👶🏻 👶🏾 👶🏼 👶🏿 👶🏽
-        </span>
         <h1 className="h3 mb-3 font-weight-normal">Login</h1>
         <label htmlFor="email" className="sr-only">
           Email

@@ -6,11 +6,14 @@ const AuthContextProvider = props => {
   const [ isAuthed, setIsAuthed ] = useState(false);
 
   const userLoggedIn = uid => {
+    console.log("userLoggedIn uid >>>", uid);
     localStorage.setItem("babyPatrolUID", uid);
     setIsAuthed(true);
   }
 
   const userLoggedOut = () => {
+    console.log("userLoggedOut");
+    localStorage.removeItem("babyPatrolUID");
     setIsAuthed(false);
   }
 

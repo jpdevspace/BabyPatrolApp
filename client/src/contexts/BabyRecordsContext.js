@@ -19,7 +19,7 @@ const BabyRecordsContextProvider = props => {
   */
 
   useEffect(() => {
-    console.log("useEffect() [BabyRecordsContext]");
+    console.log("useEffect() Getting all records");
     const getAllRecordsByTimeAsc = async () => setBabyRecords(await loadBabyRecordsByTimeAsc());
     const getLastRecordByActivity = async () => setLastRecords(await loadBabyLastRecords());
 

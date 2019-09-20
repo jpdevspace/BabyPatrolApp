@@ -15,16 +15,16 @@ firebase.auth().onAuthStateChanged(user => {
 
 export const loadBabyRecordsByTimeAsc = () => {
   let res = [];
-    return new Promise(async (resolve, reject) => {
-      try {
-        // Gets recrods sorted from oldest to newest
-        const allRecords = await db.collection("events").orderBy("time", "desc").get()
-        allRecords.forEach(doc => res.push(doc.data()))
-        return resolve(res)
-      } catch (err) {
-        return reject(err)
-      }
-    });
+  return new Promise(async (resolve, reject) => {
+    try {
+      // Gets recrods sorted from oldest to newest
+      const allRecords = await db.collection("events").orderBy("time", "desc").get()
+      allRecords.forEach(doc => res.push(doc.data()))
+      return resolve(res)
+    } catch (err) {
+      return reject(err)
+    }
+  });
 };
 
 export const loadBabyLastRecords = () => {

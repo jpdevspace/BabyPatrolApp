@@ -36,11 +36,12 @@ const Register = props => {
   };
 
   return (
-    <div id="registerPage" className="text-center">
+    <div id="registerPage">
+      <span id="registerImage" role="img" aria-label="baby bottle">
+        👶 👶🏽 👶🏻 👶🏾 👶🏼 👶🏿 👶🏽
+      </span>
+      <hr />
       <form className="form-register" onSubmit={handleSubmit}>
-        <span id="registerImage" role="img" aria-label="baby bottle">
-          👶 👶🏽 👶🏻 👶🏾 👶🏼 👶🏿 👶🏽
-        </span>
         <h1 className="h3 mb-3 font-weight-normal">Register</h1>
         <label htmlFor="babyName" className="sr-only">
           Baby's name
