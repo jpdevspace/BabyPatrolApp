@@ -29,7 +29,9 @@ const NavBar = props => {
       <nav>
         <NavLink to="/dashboard">Dashboards</NavLink>
         <NavLink to="/reports">Reports</NavLink>
-        <NavLink to="/home">Logout</NavLink>
+        <NavLink to="/home" onClick={userLoggedOut}>
+          Logout
+        </NavLink>
       </nav>
     );
   }
