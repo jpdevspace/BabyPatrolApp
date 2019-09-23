@@ -3,7 +3,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { Redirect } from "react-router-dom";
 import "./auth.css";
 
-import { loginUser } from "../../controllers/firebaseDB";
+import { loginUserToFirebase } from "../../controllers/firebaseDB";
 
 const Login = props => {
   const { isAuthed, userLoggedIn } = useContext(AuthContext);
@@ -24,7 +24,7 @@ const Login = props => {
     const formValidated = true; // TODO JP: password length, all fields filled, etc...
 
     if (formValidated) {
-      loginUser(loginInfo.email, loginInfo.password)
+      loginUserToFirebase(loginInfo.email, loginInfo.password)
         .then(res => userLoggedIn(res.user.uid))
         .catch(err => console.error(`Error at registerUser() [Register.jsx]`));
     }

@@ -2,98 +2,97 @@ import firebase from "../config/firebaseConfig";
 
 const db = firebase.firestore();
 
-// Auth State Observer
-firebase.auth().onAuthStateChanged(user => {
-    if (user) {
-    console.log("[onAuthStateChanged] True");
-  } else {
-    console.log("[onAuthStateChanged] False");
+export const loadBabyRecordsByTimeAsc = uid => {
+  if (uid) {
+    let res = [];
+
+    // Gets recrods sorted from oldest to newest
+    return db
+      .collection("events")
+      .orderBy("time", "desc")
+      .get()
+      .then(allRecords => {
+        allRecords.forEach(doc => res.push(doc.data()));
+        return res;
+      })
+      .catch(err => err);
   }
-});
-
-export const loadBabyRecordsByTimeAsc = () => {
-  let res = [];
-  return new Promise(async (resolve, reject) => {
-    try {
-      // Gets recrods sorted from oldest to newest
-      const allRecords = await db.collection("events").orderBy("time", "desc").get()
-      allRecords.forEach(doc => res.push(doc.data()))
-      return resolve(res)
-    } catch (err) {
-      return reject(err)
-    }
-  });
+  throw Error("notAuthed");
 };
 
-export const loadBabyLastRecords = () => {
-  let lastRecordsByType = {
-    feed: null,
-    pee: null,
-    poop: null,
-    sleep: null
-  };
-
-  return new Promise(async (resolve, reject) => {
-    try {
-     
-      const getLastRecord = arr => arr.forEach(recs => lastRecordsByType[recs.data().type] = recs.data());
-
-      const lastPee = (
-        await db
-          .collection("events")
-          .where("type", "==", "pee")
-          .orderBy("time", "desc")
-          .limit(1)
-          .get()
-      );
-
-      const lastFeed = (
-        await db
-          .collection("events")
-          .where("type", "==", "feed")
-          .orderBy("time", "desc")
-          .limit(1)
-          .get()
-      );
-
-      const lastPoop = (
-        await db
-          .collection("events")
-          .where("type", "==", "poop")
-          .orderBy("time", "desc")
-          .limit(1)
-          .get()
-      );
-
-      const lastSleep = (
-        await db
-          .collection("events")
-          .where("type", "==", "sleep")
-          .orderBy("time", "desc")
-          .limit(1)
-          .get()
-      );
-      
-      getLastRecord(lastFeed);
-      getLastRecord(lastPee);
-      getLastRecord(lastPoop);
-      getLastRecord(lastSleep);
-
-      return resolve(lastRecordsByType);
-    } catch (err) {
-      return reject(err);
-    }
-  });
+export const loadBabyLastRecords = uid => {
+  if (uid) {
+    let lastRecordsByType = {
+      feed: null,
+      pee: null,
+      poop: null,
+      sleep: null
+    };
+  
+    return new Promise(async (resolve, reject) => {
+      try {
+       
+        const getLastRecord = arr => arr.forEach(recs => lastRecordsByType[recs.data().type] = recs.data());
+  
+        const lastPee = (
+          await db
+            .collection("events")
+            .where("type", "==", "pee")
+            .orderBy("time", "desc")
+            .limit(1)
+            .get()
+        );
+  
+        const lastFeed = (
+          await db
+            .collection("events")
+            .where("type", "==", "feed")
+            .orderBy("time", "desc")
+            .limit(1)
+            .get()
+        );
+  
+        const lastPoop = (
+          await db
+            .collection("events")
+            .where("type", "==", "poop")
+            .orderBy("time", "desc")
+            .limit(1)
+            .get()
+        );
+  
+        const lastSleep = (
+          await db
+            .collection("events")
+            .where("type", "==", "sleep")
+            .orderBy("time", "desc")
+            .limit(1)
+            .get()
+        );
+        
+        getLastRecord(lastFeed);
+        getLastRecord(lastPee);
+        getLastRecord(lastPoop);
+        getLastRecord(lastSleep);
+  
+        return resolve(lastRecordsByType);
+      } catch (err) {
+        return reject(err);
+      }
+    });
+  }
+  throw Error("notAuthed");
 };
 
-export const addBabyRecords = ({ comment, time, type }) => {
-  return new Promise(async (resolve, reject) => {
-    try {
-      await db.collection("events").add({ comment, time, type });
-    } catch (err) {
-      return reject(err);
-    }
-  });
+export const addBabyRecords = ({ comment, time, type, uid }) => {
+  if (uid) {
+    console.log("uid for nu record>>>", uid);
+    return db
+      .collection("events")
+      .doc(uid)
+      .set({ comment, time, type }, { merge: true })
+  }
+  throw Error("notAuthed");
 };
 
 /*
@@ -118,7 +117,7 @@ export const registerUser = (email, password, babyName) => {
     });
 }
 
-export const loginUser = (email, password) => {
+export const loginUserToFirebase = (email, password) => {
   return firebase.auth().signInWithEmailAndPassword(email, password)
     .catch(err => {
       console.error(`Error at loginUser() \n Error Code: ${err.code} \n Msg: ${err.message}`)
@@ -126,7 +125,7 @@ export const loginUser = (email, password) => {
     })
 }
 
-export const logoutUser = () => {
+export const logoutUserFromFirebase = () => {
   firebase.auth().signOut()
     .then(() => {
     // Sign-out successful.

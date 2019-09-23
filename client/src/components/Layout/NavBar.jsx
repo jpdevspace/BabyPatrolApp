@@ -15,7 +15,7 @@ const NavBar = props => {
     } else {
       userLoggedOut();
     }
-  }, []);
+  }, [isAuthed]);
 
   let navLinks = (
     <nav>
@@ -44,11 +44,6 @@ const NavBar = props => {
         </h5>
       </div>
       {navLinks}
-      {/* <nav>
-        <NavLink to="/login">Login</NavLink>
-        <NavLink to="/register">Register</NavLink>
-        <NavLink to="/reports">Reports</NavLink>
-      </nav> */}
     </div>
   );
 };

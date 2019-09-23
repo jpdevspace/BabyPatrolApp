@@ -10,11 +10,19 @@ const BabyEventButton = props => {
     const newBabyRec = {
       comment: "fire",
       time: new firebase.firestore.Timestamp.fromDate(new Date()),
-      type
+      type,
+      uid: localStorage.getItem("babyPatrolUID")
     };
 
-    addBabyRecords(newBabyRec); // Updates Firebase
-    newEvent(newBabyRec); // Updates context
+    // Updates Firebase
+    try {
+      addBabyRecords(newBabyRec);
+      console.log("New record created.");
+    } catch (err) {
+      console.error("Error trying to addBabyRecords >>>", err.message);
+    }
+    // Updates context
+    newEvent(newBabyRec);
   };
 
   return (

@@ -1,4 +1,6 @@
 import React, { createContext, useState } from "react";
+import { logoutUserFromFirebase } from "../controllers/firebaseDB";
+import firebase from "../config/firebaseConfig";
 
 export const AuthContext = createContext();
 
@@ -14,8 +16,19 @@ const AuthContextProvider = props => {
   const userLoggedOut = () => {
     console.log("userLoggedOut");
     localStorage.removeItem("babyPatrolUID");
-    setIsAuthed(false);
+    setIsAuthed(false); // Update context
+    logoutUserFromFirebase(); // Update Firebase
+
   }
+
+  //Auth State Observer
+  firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+      console.log("[onAuthStateChanged] True");
+    } else {
+      console.log("[onAuthStateChanged] False");
+    }
+  });
 
   return (
     <AuthContext.Provider value={{ isAuthed, userLoggedIn, userLoggedOut }}>
