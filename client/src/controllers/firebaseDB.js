@@ -28,7 +28,7 @@ export const loadBabyLastRecords = uid => {
       poop: null,
       sleep: null
     };
-  
+    // TODO JP: Update this function to match the new db schema
     return new Promise(async (resolve, reject) => {
       try {
        
