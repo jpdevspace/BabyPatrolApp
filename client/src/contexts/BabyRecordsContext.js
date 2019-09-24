@@ -48,7 +48,7 @@ const BabyRecordsContextProvider = props => {
       });
     } else {
       setBabyRecords([ newBabyRec ]);
-      setLastRecords({ [newBabyRec.type]: newBabyRec  })
+      setLastRecords({ [newBabyRec.type]: newBabyRec  });
     }
   };
 

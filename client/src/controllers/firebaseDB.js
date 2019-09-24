@@ -88,9 +88,10 @@ export const addBabyRecords = ({ comment, time, type, uid }) => {
   if (uid) {
     console.log("uid for nu record>>>", uid);
     return db
-      .collection("events")
+      .collection("records")
       .doc(uid)
-      .set({ comment, time, type }, { merge: true })
+      .collection("activities")
+      .add({ comment, time, type })
   }
   throw Error("notAuthed");
 };
