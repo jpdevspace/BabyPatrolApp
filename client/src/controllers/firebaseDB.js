@@ -15,7 +15,6 @@ export const loadBabyRecordsByTimeAsc = uid => {
       .get()
       .then(allRecords => {
         allRecords.forEach(doc => res.push(doc.data()));
-        console.log("res >>>", res);
         return res;
       })
       .catch(err => err);
@@ -31,15 +30,17 @@ export const loadBabyLastRecords = uid => {
       poop: null,
       sleep: null
     };
-    // TODO JP: Update this function to match the new db schema
+
     return new Promise(async (resolve, reject) => {
       try {
        
         const getLastRecord = arr => arr.forEach(recs => lastRecordsByType[recs.data().type] = recs.data());
-  
+        
         const lastPee = (
           await db
-            .collection("events")
+            .collection("records")
+            .doc(uid)
+            .collection("activities")
             .where("type", "==", "pee")
             .orderBy("time", "desc")
             .limit(1)
@@ -48,7 +49,9 @@ export const loadBabyLastRecords = uid => {
   
         const lastFeed = (
           await db
-            .collection("events")
+            .collection("records")
+            .doc(uid)
+            .collection("activities")
             .where("type", "==", "feed")
             .orderBy("time", "desc")
             .limit(1)
@@ -57,7 +60,9 @@ export const loadBabyLastRecords = uid => {
   
         const lastPoop = (
           await db
-            .collection("events")
+            .collection("records")
+            .doc(uid)
+            .collection("activities")
             .where("type", "==", "poop")
             .orderBy("time", "desc")
             .limit(1)
@@ -66,7 +71,9 @@ export const loadBabyLastRecords = uid => {
   
         const lastSleep = (
           await db
-            .collection("events")
+            .collection("records")
+            .doc(uid)
+            .collection("activities")
             .where("type", "==", "sleep")
             .orderBy("time", "desc")
             .limit(1)
