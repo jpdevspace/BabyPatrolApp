@@ -8,11 +8,14 @@ export const loadBabyRecordsByTimeAsc = uid => {
 
     // Gets recrods sorted from oldest to newest
     return db
-      .collection("events")
+      .collection("records")
+      .doc(uid)
+      .collection("activities")
       .orderBy("time", "desc")
       .get()
       .then(allRecords => {
         allRecords.forEach(doc => res.push(doc.data()));
+        console.log("res >>>", res);
         return res;
       })
       .catch(err => err);
