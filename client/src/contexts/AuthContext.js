@@ -8,13 +8,11 @@ const AuthContextProvider = props => {
   const [ isAuthed, setIsAuthed ] = useState(false);
 
   const userLoggedIn = uid => {
-    console.log("userLoggedIn");
     localStorage.setItem("babyPatrolUID", uid);
     setIsAuthed(true);
   }
 
   const userLoggedOut = () => {
-    console.log("userLoggedOut");
     localStorage.removeItem("babyPatrolUID");
     setIsAuthed(false); // Update context
     logoutUserFromFirebase(); // Update Firebase
@@ -23,11 +21,11 @@ const AuthContextProvider = props => {
 
   //Auth State Observer
   firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-      console.log("[onAuthStateChanged] True");
-    } else {
-      console.log("[onAuthStateChanged] False");
-    }
+    //   if (user) {
+    //
+    // } else {
+
+    // }
   });
 
   return (

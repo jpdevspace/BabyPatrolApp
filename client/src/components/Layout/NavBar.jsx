@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { Fragment, useContext, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 
@@ -7,7 +7,6 @@ const NavBar = props => {
 
   // Check if user was loggedIn before
   useEffect(() => {
-    console.log("useEffect()");
     const loggedInBefore = localStorage.getItem("babyPatrolUID");
 
     if (loggedInBefore) {
@@ -18,33 +17,33 @@ const NavBar = props => {
   }, [isAuthed]);
 
   let navLinks = (
-    <nav>
+    <Fragment>
       <NavLink to="/login">Login</NavLink>
       <NavLink to="/register">Register</NavLink>
-    </nav>
+    </Fragment>
   );
 
   if (isAuthed) {
     navLinks = (
-      <nav>
+      <Fragment>
         <NavLink to="/dashboard">Dashboards</NavLink>
         <NavLink to="/reports">Reports</NavLink>
         <NavLink to="/home" onClick={userLoggedOut}>
           Logout
         </NavLink>
-      </nav>
+      </Fragment>
     );
   }
 
   return (
-    <div>
-      <div>
+    <nav>
+      <div id="bp-nav-logo-container">
         <h5>
           <NavLink to="/">BabyPatrol</NavLink>
         </h5>
       </div>
       {navLinks}
-    </div>
+    </nav>
   );
 };
 

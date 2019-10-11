@@ -13,7 +13,9 @@ const Dashboard = props => {
   const { isAuthed } = useContext(AuthContext);
   const { loadAllUserData } = useContext(BabyRecordsContext);
 
-  useEffect(() => loadAllUserData(), [isAuthed]);
+  useEffect(() => {
+    loadAllUserData();
+  }, []);
 
   return (
     <Fragment>

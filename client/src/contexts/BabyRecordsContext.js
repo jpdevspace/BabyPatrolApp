@@ -22,9 +22,9 @@ const BabyRecordsContextProvider = props => {
   */
 
   const loadAllUserData = () => {
-    console.log("Trying to loadAllUserData()");
     if (isAuthed) {
       const uid = localStorage.getItem("babyPatrolUID");
+
       loadBabyRecordsByTimeAsc(uid)
         .then(records => setBabyRecords(records))
         .catch(err => console.error("Error trying to loadAllUserData() \n Err >", err));
@@ -39,7 +39,6 @@ const BabyRecordsContextProvider = props => {
   }
 
   const newEventAdded = (newBabyRec ) => {
-    console.log("newBabyRec >>>", newBabyRec);
     if (babyRecords.length) {
       setBabyRecords([...babyRecords, newBabyRec]);
       setLastRecords({

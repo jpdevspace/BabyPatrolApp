@@ -96,7 +96,6 @@ export const loadBabyLastRecords = uid => {
 
 export const addBabyRecords = ({ comment, time, type, uid }) => {
   if (uid) {
-    console.log("uid for nu record>>>", uid);
     return db
       .collection("records")
       .doc(uid)
@@ -112,7 +111,6 @@ and put the baby name in it, in the future this collection will hold additional
 user info
 */
 export const registerUser = (email, password, babyName) => {
-  console.log("registerUser()");
   return firebase.auth().createUserWithEmailAndPassword(email, password)
     .then(newUserInfo => {
       db
@@ -140,7 +138,6 @@ export const logoutUserFromFirebase = () => {
   firebase.auth().signOut()
     .then(() => {
     // Sign-out successful.
-    console.log("Sign-out successful.")
     })
     .catch(err => {
       console.error(`Error at logoutUser() \n Error Code: ${err.code} \n Msg: ${err.message}`)

@@ -17,7 +17,6 @@ const BabyEventButton = props => {
     // Updates Firebase
     try {
       addBabyRecords(newBabyRec);
-      console.log("New record created.");
     } catch (err) {
       console.error("Error trying to addBabyRecords >>>", err.message);
     }
