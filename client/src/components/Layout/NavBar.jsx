@@ -17,7 +17,7 @@ const NavBar = props => {
   }, [isAuthed]);
 
   let navLinks = (
-    <div id="bp-nav-unauthedLinks" class="bp-nav-links">
+    <div class="bp-nav-linksContainer">
       <NavLink className="bp-nav-links" to="/login">
         Login
       </NavLink>
@@ -29,7 +29,7 @@ const NavBar = props => {
 
   if (isAuthed) {
     navLinks = (
-      <div id="bp-nav-authedLinks" class="bp-nav-links">
+      <div class="bp-nav-linksContainer">
         <NavLink className="bp-nav-links" to="/dashboard">
           Dashboards
         </NavLink>

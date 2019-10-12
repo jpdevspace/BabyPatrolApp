@@ -3,6 +3,9 @@
   --bpBlue: #4FD5FF;
   --pbPink: #F2B7B2;
   --bpYellow: #F2B76A;
+  --bpOrange: #E55B00;
+  --bpAqua: #00FFFD;
+  --bpNavShadow: #7f7f7f;
 }
 
 * {
@@ -10,16 +13,26 @@
   color: #222;
 }
 
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
 /*********************** 
       Navigation 
 ************************/
 nav {
-  background-color: var(--bpBlue);
+  background-color: var(--bpAqua);
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
-  padding: 1em;
+  padding: 1.5em 1em 0 1em;
+  border: solid var(--bpAqua);
+  border-width: 0 0 10px 0;
+  box-shadow: 0px 5px 20px 9px var(--bpAqua);
 }
 
 nav a {
@@ -34,6 +47,8 @@ nav a {
 
 #bp-nav-babyPatrolText > a {
   color: #FFF;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 3px var(--bpNavShadow);
 }
 
 
@@ -44,21 +59,24 @@ nav a {
 }
 
 .bp-nav-links {
-  padding: 0 0.25em;
+  padding: 0 0.35em;
   color: #FFF;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 3px var(--bpNavShadow);
 }
 
 /*********************** 
       Body 
 ************************/
 body {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
 }
 
 #bp-bodyWrapper {
   width: 80%;
-  margin: 3em auto;
+  margin: 2.5em auto 0;
 }
 
 #bp-landingPageContainer {
@@ -69,9 +87,40 @@ body {
   line-height: 2em;
 }
 
+#bp-landingPageContainer ul {
+  list-style: none;
+  padding: 0;
+}
 
+#bp-landingPageContainer ul span {
+  font-size: 24px;
+}
+
+#bp-landingPage-welcome {
+  font-family: 'Mansalva', cursive;
+  font-size: 120%;
+}
+
+#bp-landingPage-welcome > h1 {
+  margin: 0;
+}
 
 #baby-patrol {
   font-family: 'Mansalva', cursive;
-  font-size: 30px;
+  font-size: 120%;
+}
+
+
+/*********************** 
+      Footer 
+************************/
+footer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  align-items: center;
+  height: 250px;
+  background-color: #cecece;
+  padding: 1em;
+  font-size: 10px;
 }
