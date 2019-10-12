@@ -1,18 +1,18 @@
-import React from 'react';
+import React, { Fragment } from "react";
 
-import Footer from './Footer';
-import NavBar from './NavBar';
+import Footer from "./Footer";
+import NavBar from "./NavBar";
 
-const Layout = (props) => {
+import "./layout.css";
+
+const Layout = props => {
   return (
-    <div>
-        <NavBar />
-            <div>
-                {props.children}
-            </div>
-        <Footer />
-    </div>
+    <>
+      <NavBar />
+      <div id="bp-bodyWrapper">{props.children}</div>
+      <Footer />
+    </>
   );
-}
+};
 
 export default Layout;

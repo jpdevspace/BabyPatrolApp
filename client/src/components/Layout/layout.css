@@ -1,0 +1,77 @@
+:root {
+  --bpPurple: #5C31BF;
+  --bpBlue: #4FD5FF;
+  --pbPink: #F2B7B2;
+  --bpYellow: #F2B76A;
+}
+
+* {
+  box-sizing: border-box;
+  color: #222;
+}
+
+/*********************** 
+      Navigation 
+************************/
+nav {
+  background-color: var(--bpBlue);
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+#bp-nav-babyPatrolText {
+  font-family: 'Mansalva', cursive;
+  font-size: 24px;
+  margin: 0;
+}
+
+#bp-nav-babyPatrolText > a {
+  color: #FFF;
+}
+
+
+.bp-nav-linksContainer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+}
+
+.bp-nav-links {
+  padding: 0 0.25em;
+  color: #FFF;
+}
+
+/*********************** 
+      Body 
+************************/
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+}
+
+#bp-bodyWrapper {
+  width: 80%;
+  margin: 3em auto;
+}
+
+#bp-landingPageContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 2em;
+}
+
+
+
+#baby-patrol {
+  font-family: 'Mansalva', cursive;
+  font-size: 30px;
+}

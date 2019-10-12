@@ -17,28 +17,36 @@ const NavBar = props => {
   }, [isAuthed]);
 
   let navLinks = (
-    <Fragment>
-      <NavLink to="/login">Login</NavLink>
-      <NavLink to="/register">Register</NavLink>
-    </Fragment>
+    <div id="bp-nav-unauthedLinks" class="bp-nav-links">
+      <NavLink className="bp-nav-links" to="/login">
+        Login
+      </NavLink>
+      <NavLink className="bp-nav-links" to="/register">
+        Register
+      </NavLink>
+    </div>
   );
 
   if (isAuthed) {
     navLinks = (
-      <Fragment>
-        <NavLink to="/dashboard">Dashboards</NavLink>
-        <NavLink to="/reports">Reports</NavLink>
-        <NavLink to="/home" onClick={userLoggedOut}>
+      <div id="bp-nav-authedLinks" class="bp-nav-links">
+        <NavLink className="bp-nav-links" to="/dashboard">
+          Dashboards
+        </NavLink>
+        <NavLink className="bp-nav-links" to="/reports">
+          Reports
+        </NavLink>
+        <NavLink className="bp-nav-links" to="/home" onClick={userLoggedOut}>
           Logout
         </NavLink>
-      </Fragment>
+      </div>
     );
   }
 
   return (
     <nav>
-      <div id="bp-nav-logo-container">
-        <h5>
+      <div>
+        <h5 id="bp-nav-babyPatrolText">
           <NavLink to="/">BabyPatrol</NavLink>
         </h5>
       </div>
