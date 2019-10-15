@@ -36,155 +36,65 @@ const Register = props => {
   };
 
   return (
-    <div id="registerPage">
-      <span id="registerImage" role="img" aria-label="baby bottle">
+    <div id="bp-registerPage">
+      {/* <span id="registerImage" role="img" aria-label="baby bottle">
         👶 👶🏽 👶🏻 👶🏾 👶🏼 👶🏿 👶🏽
-      </span>
-      <hr />
+      </span> */}
       <form className="form-register" onSubmit={handleSubmit}>
         <h1 className="h3 mb-3 font-weight-normal">Register</h1>
-        <label htmlFor="babyName" className="sr-only">
-          Baby's name
-        </label>
         <input
           onChange={handleInputChange}
           id="babyName"
+          className="bp-userInput"
           type="babyName"
           name="babyName"
           value={registerInfo.babyName}
           placeholder="Baby's Name"
+          aria-label="Baby's Name"
           required
           autoFocus
         />
-        <label htmlFor="email" className="sr-only">
-          Email
-        </label>
+
         <input
           onChange={handleInputChange}
           id="email"
+          className="bp-userInput"
           type="email"
           name="email"
           value={registerInfo.email}
           placeholder="Email"
+          aria-label="Email"
           required
           autoFocus
         />
-        <label htmlFor="password" className="sr-only">
-          Password
-        </label>
+
         <input
           onChange={handleInputChange}
           id="password"
+          className="bp-userInput"
           type="password"
           name="password"
           value={registerInfo.password}
           placeholder="Password"
+          aria-label="Password"
           required
         />
-        <label htmlFor="confirmPassword" className="sr-only">
-          Confirm Password
-        </label>
+
         <input
           onChange={handleInputChange}
           id="confirmPassword"
+          className="bp-userInput"
           type="password"
           name="confirmPassword"
           value={registerInfo.confirmPassword}
           placeholder="Confirm Password"
+          aria-label="Confirm Password"
           required
         />
-        <input type="submit" value="Register" />
+        <input className="bp-form-button" type="submit" value="REGISTER" />
       </form>
     </div>
   );
 };
 
 export default Register;
-// class Register extends Component {
-//   state = {
-//     babyName: "",
-//     email: "",
-//     password: "",
-//     confirmPassword: ""
-//   }
-
-//   handleChange = e => {
-//     setState({
-//       [e.target.name]: e.target.value
-//     });
-//   }
-
-//   submitRegister = e => {
-//     e.preventDefault();
-//     registerUser(state.email, state.password);
-//   }
-
-//   render() {
-//     return (
-//       <div id="registerPage" className="text-center">
-//         <form className="form-register">
-//           <span id="registerImage" role="img" aria-label="baby bottle">
-//             👶 👶🏽 👶🏻 👶🏾 👶🏼 👶🏿 👶🏽
-//           </span>
-//           <h1 className="h3 mb-3 font-weight-normal">Register</h1>
-//           <label htmlFor="inputBabyName" className="sr-only">
-//             Baby Name
-//           </label>
-//           <input
-//             onChange={handleChange}
-//             type="text"
-//             name="babyName"
-//             value={state.babyName}
-//             className="form-control"
-//             placeholder="Baby's Name"
-//           />
-
-//           <input
-//             onChange={handleChange}
-//             type="email"
-//             name="email"
-//             value={state.email}
-//             className="form-control mt-2"
-//             placeholder="Email"
-//             required
-//             autoFocus
-//           />
-//           <label htmlFor="inputPassword" className="sr-only">
-//             Password
-//           </label>
-//           <input
-//             onChange={handleChange}
-//             type="password"
-//             name="password"
-//             value={state.password}
-//             className="form-control mt-2"
-//             placeholder="Password"
-//             required
-//           />
-//           <label htmlFor="inputPassword2" className="sr-only">
-//             Confirm Password
-//           </label>
-//           <input
-//             onChange={handleChange}
-//             type="password"
-//             name="confirmPassword"
-//             value={state.confirmPassword}
-//             className="form-control mt-2"
-//             placeholder="Confirm Password"
-//             required
-//           />
-//           <br />
-//           <button
-//             onClick={submitRegister}
-//             className="btn btn-lg btn-primary btn-block"
-//             type="submit"
-//           >
-//             Register
-//           </button>
-//         </form>
-//       </div>
-//     );
-//   }
-// }
-
-// export default Register;

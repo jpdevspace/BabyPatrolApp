@@ -37,40 +37,38 @@ const Login = props => {
   };
 
   return (
-    <div id="loginPage">
-      <span id="loginImage" role="img" aria-label="baby bottle">
+    <div id="bp-loginPage">
+      {/* <span id="loginImage" role="img" aria-label="baby bottle">
         👶 👶🏽 👶🏻 👶🏾 👶🏼 👶🏿 👶🏽
-      </span>
+      </span> */}
       {redirectAuthedUser()}
-      <form className="form-login" onSubmit={handleSubmit}>
-        <h1 className="h3 mb-3 font-weight-normal">Login</h1>
-        <label htmlFor="email" className="sr-only">
-          Email
-        </label>
+      <form className="bp-form-login" onSubmit={handleSubmit}>
+        <h1>Login</h1>
         <input
           onChange={handleInputChange}
           id="email"
+          className="bp-userInput"
           type="email"
           name="email"
           value={loginInfo.email}
+          aria-label="email"
           placeholder="Email"
           required
           autoFocus
         />
-        <label htmlFor="password" className="sr-only">
-          Password
-        </label>
         <input
           onChange={handleInputChange}
           id="password"
+          className="bp-userInput"
           type="password"
           name="password"
           value={loginInfo.password}
+          aria-label="password"
           placeholder="Password"
           required
         />
-        <br />
-        <input type="submit" value="Login" />
+
+        <input className="bp-form-button" type="submit" value="LOGIN" />
       </form>
     </div>
   );

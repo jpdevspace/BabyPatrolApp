@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 
@@ -17,7 +17,7 @@ const NavBar = props => {
   }, [isAuthed]);
 
   let navLinks = (
-    <div class="bp-nav-linksContainer">
+    <div className="bp-nav-linksContainer">
       <NavLink className="bp-nav-links" to="/login">
         Login
       </NavLink>
