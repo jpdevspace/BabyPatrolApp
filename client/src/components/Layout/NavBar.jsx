@@ -36,7 +36,7 @@ const NavBar = props => {
         <NavLink className="bp-nav-links" to="/reports">
           Reports
         </NavLink>
-        <NavLink className="bp-nav-links" to="/home" onClick={userLoggedOut}>
+        <NavLink className="bp-nav-links" to="/" onClick={userLoggedOut}>
           Logout
         </NavLink>
       </div>

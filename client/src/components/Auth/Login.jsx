@@ -38,9 +38,6 @@ const Login = props => {
 
   return (
     <div id="bp-loginPage">
-      {/* <span id="loginImage" role="img" aria-label="baby bottle">
-        👶 👶🏽 👶🏻 👶🏾 👶🏼 👶🏿 👶🏽
-      </span> */}
       {redirectAuthedUser()}
       <form className="bp-form-login" onSubmit={handleSubmit}>
         <h1>Login</h1>
