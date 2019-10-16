@@ -1,14 +1,11 @@
-import React, { Component } from 'react';
-
+import React, { Component } from "react";
 
 class BabyEventLegend extends Component {
-    render = () => {
-        const { agoString, type } = this.props;
+  render = () => {
+    const { agoString } = this.props;
 
-        return (
-            <p>Last { type } was { agoString }</p>
-        )
-    }
+    return <span class="bp-fromNowLegend">{agoString}</span>;
+  };
 }
 
 export default BabyEventLegend;

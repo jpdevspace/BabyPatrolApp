@@ -1,0 +1,61 @@
+#bp-eventsWidgetContainer {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  height: 70%;
+}
+
+.bp-fromNowLegend {
+  font-size: 10px;
+  color: #222;
+  font-weight: bold;
+  text-align: center;
+}
+
+.bp-eventWidget {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 40%;
+  margin-bottom: 1em;
+}
+
+.bp-eventWidget button {
+  padding: 2em;
+  border-width: 0 4px 4px 0;
+  border-radius: 10px;
+  min-width:120px;
+  min-height:165px;
+  box-shadow: 0 12px 24px 0 rgba(0,0,0,.2);
+  margin-bottom: 10px;
+}
+
+.bp-eventWidget button:hover {
+  box-shadow: 0 0 0 0;
+}
+
+.bp-eventWidget button h2 {
+  font-size: 2em;
+}
+
+#bp-feedWidget button {
+  background: #bebebe;
+  border-color: #9f9f9f;
+}
+
+#bp-peeWidget button {
+ background: #01aecc;
+ border-color: #00bedf;
+}
+
+#bp-poopWidget button {
+ background: #b45200;
+ border-color: #b45102;
+}
+
+#bp-sleepWidget button {
+ background: #8e50ff;
+ border-color: #4000b8;
+}

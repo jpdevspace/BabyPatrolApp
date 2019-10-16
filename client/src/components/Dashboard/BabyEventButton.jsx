@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { addBabyRecords } from "../../controllers/firebaseDB";
 import firebase from "../../config/firebaseConfig";
 
@@ -25,7 +25,7 @@ const BabyEventButton = props => {
   };
 
   return (
-    <div>
+    <Fragment>
       <button onClick={e => handleClick(e)}>
         <h2>
           <span role="img" aria-label={type}>
@@ -33,7 +33,7 @@ const BabyEventButton = props => {
           </span>
         </h2>
       </button>
-    </div>
+    </Fragment>
   );
 };
 

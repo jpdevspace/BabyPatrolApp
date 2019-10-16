@@ -3,9 +3,9 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { BabyRecordsContext } from "../../contexts/BabyRecordsContext";
 import { Redirect } from "react-router-dom";
 
-// Components
 import BabyEventWidget from "./BabyEventWidget";
 import BabyEventWidgetcontainer from "./BabyEventWidgetContainer";
+import "./dashboard.css";
 
 import allActivities from "../../config/activities";
 

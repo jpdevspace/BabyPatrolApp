@@ -1,12 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const BabyEventWidgetContainer = props => {
-    return (
-        <div>
-            {props.children}
-        </div>
-    )
-}
+  return <div id="bp-eventsWidgetContainer">{props.children}</div>;
+};
 
-
-export default BabyEventWidgetContainer
+export default BabyEventWidgetContainer;
