@@ -34,7 +34,7 @@ const BabyEventWidget = props => {
   }
 
   return (
-    <div id={`bp-${props.type}Widget`} class="bp-eventWidget">
+    <div id={`bp-${props.type}Widget`} className="bp-eventWidget">
       <BabyEventButton
         newEvent={newBabyRec => newEventAdded(newBabyRec)}
         icon={props.icon}

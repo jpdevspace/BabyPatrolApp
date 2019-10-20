@@ -1,12 +1,11 @@
+export const validateMinLength = (str, minLength) => str && str.length > minLength;
 
-const validateBabyName = str => {
-
-};
-
-export const validateInput = (str, inputName) => {
-  switch(inputName) {
-    case "babyName": return validateBabyName(str);
-    default:
-      return;
-  }
+export const pwdMatch = (pwdA, pwdB) => {
+  return (
+    pwdA            &&
+    pwdA.length > 0 &&
+    pwdB            &&
+    pwdB.length > 0 &&
+    pwdA === pwdB
+  );
 }

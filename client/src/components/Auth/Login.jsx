@@ -50,6 +50,7 @@ const Login = props => {
           value={loginInfo.email}
           aria-label="email"
           placeholder="Email"
+          min="9"
           required
           autoFocus
         />
@@ -62,6 +63,7 @@ const Login = props => {
           value={loginInfo.password}
           aria-label="password"
           placeholder="Password"
+          min="6"
           required
         />
 

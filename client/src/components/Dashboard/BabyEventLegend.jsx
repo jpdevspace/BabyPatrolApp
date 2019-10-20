@@ -4,7 +4,7 @@ class BabyEventLegend extends Component {
   render = () => {
     const { agoString } = this.props;
 
-    return <span class="bp-fromNowLegend">{agoString}</span>;
+    return <span className="bp-fromNowLegend">{agoString}</span>;
   };
 }
 

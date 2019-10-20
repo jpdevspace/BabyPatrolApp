@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import { Redirect } from "react-router-dom";
-import validateInput from "../../controllers/inputValidator";
+import { validateMinLength, pwdMatch } from "../../controllers/inputValidator";
 import "./auth.css";
 
 import { registerUser } from "../../controllers/firebaseDB";
@@ -14,6 +14,12 @@ const Register = props => {
     confirmPassword: "",
     babyName: ""
   });
+  const [validationErrors, setValidationErrors] = useState({
+    email: false,
+    password: false,
+    confirmPassword: false,
+    babyName: false
+  });
 
   const handleInputChange = e => {
     setRegisterInfo({
@@ -24,9 +30,16 @@ const Register = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    const formValidated = true; // TODO JP: password length, all fields filled, etc...
+    //const formValidated = true; // TODO JP: password length, all fields filled, etc...
+    const validEmail = validateMinLength(registerInfo.email, 9);
+    const validPwdLength = validateMinLength(registerInfo.password, 6);
+    const validPwdMatch = pwdMatch(
+      registerInfo.password,
+      registerInfo.confirmPassword
+    );
 
-    if (formValidated) {
+    if (validEmail && validPwdLength && validPwdMatch) {
+      console.log("Valid");
       registerUser(
         registerInfo.email,
         registerInfo.password,
@@ -34,6 +47,30 @@ const Register = props => {
       )
         .then(uid => userLoggedIn(uid))
         .catch(err => console.error(`Error at registerUser() [Register.jsx]`));
+    }
+
+    if (!validEmail) {
+      console.log("invalid email");
+      setValidationErrors({
+        ...validationErrors,
+        email: "Your email looks too short."
+      });
+    }
+
+    if (!validPwdLength) {
+      console.log("invalid pwd length");
+      setValidationErrors({
+        ...validationErrors,
+        password: "Your password needs to be at least 6 characters long."
+      });
+    }
+
+    if (!validPwdMatch) {
+      console.log("invalid pwdMatch");
+      setValidationErrors({
+        ...validationErrors,
+        confirmPassword: "Passwords do not match."
+      });
     }
   };
 
@@ -60,7 +97,7 @@ const Register = props => {
           required
           autoFocus
         />
-        <spam className="bp-inputMsg">{}</spam>
+
         <input
           onChange={handleInputChange}
           id="email"
@@ -71,8 +108,10 @@ const Register = props => {
           placeholder="Email"
           aria-label="Email"
           required
-          autoFocus
         />
+        <span className="bp-inputMsg">
+          {validationErrors.email ? validationErrors.email : null}
+        </span>
 
         <input
           onChange={handleInputChange}
@@ -84,7 +123,11 @@ const Register = props => {
           placeholder="Password"
           aria-label="Password"
           required
+          //minLength="6"
         />
+        <span className="bp-inputMsg">
+          {validationErrors.password ? validationErrors.password : null}
+        </span>
 
         <input
           onChange={handleInputChange}
@@ -95,8 +138,15 @@ const Register = props => {
           value={registerInfo.confirmPassword}
           placeholder="Confirm Password"
           aria-label="Confirm Password"
+          //minLength="6"
           required
         />
+        <span className="bp-inputMsg">
+          {validationErrors.confirmPassword
+            ? validationErrors.confirmPassword
+            : null}
+        </span>
+
         <input className="bp-form-button" type="submit" value="REGISTER" />
       </form>
     </div>

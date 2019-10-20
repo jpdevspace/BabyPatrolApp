@@ -29,7 +29,7 @@ const NavBar = props => {
 
   if (isAuthed) {
     navLinks = (
-      <div class="bp-nav-linksContainer">
+      <div className="bp-nav-linksContainer">
         <NavLink className="bp-nav-links" to="/dashboard">
           Dashboards
         </NavLink>
