@@ -1,10 +1,8 @@
 :root {
   --bpPurple: #5C31BF;
-  --bpBlue: #4FD5FF;
-  --pbPink: #F2B7B2;
-  --bpYellow: #ffe200;
-  --bpOrange: #E55B00;
-  --bpAqua: #00FFFD;
+  --bpPurpleLight: #996EFB;
+  --bpButtonShadow: #B0ACAC;
+  --bpYellow: #FFE200;
   --bpCoral: #f26461;
   --bpNavShadow: #CFCFCF;
   --bpFooter: #5e5e5f;
@@ -132,30 +130,24 @@ body {
 }
 
 .bp-form-button {
-  border: 3px solid #FFF;
-  border-radius: 25px;
-  width: 150px;
-  height: 50px;
-  font-weight: bold;
-  background-color: #61f2e4;
-  box-shadow: 2px 2px 5px 1px #b0acac;
-}
-
-.bp-form-button {
-  border: solid #5c31bf;
+  border: solid var(--bpPurple);
   border-width: 0 0 4px 0;
   border-radius: 5px;
   width: 150px;
   height: 50px;
   font-weight: bold;
-  background-color: #996efb;
-  box-shadow: 2px 2px 5px 1px #b0acac;
+  background-color: var(--bpPurpleLight);
+  box-shadow: 2px 2px 5px 1px var(--bpButtonShadow);
   color: #FFF;
   letter-spacing: 2px;
   text-transform: uppercase;
   margin-top: 3em;
 }
 
+.bp-form-button:hover {
+  background-color: var(--bpPurple);
+  box-shadow: 0 0 0 0;
+}
 
 /*********************** 
       Login 

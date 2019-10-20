@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import { Redirect } from "react-router-dom";
+import validateInput from "../../controllers/inputValidator";
 import "./auth.css";
 
 import { registerUser } from "../../controllers/firebaseDB";
@@ -59,7 +60,7 @@ const Register = props => {
           required
           autoFocus
         />
-
+        <spam className="bp-inputMsg">{}</spam>
         <input
           onChange={handleInputChange}
           id="email"
