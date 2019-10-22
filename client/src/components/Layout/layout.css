@@ -3,6 +3,7 @@
   --bpPurpleLight: #996EFB;
   --bpButtonShadow: #B0ACAC;
   --bpYellow: #FFE200;
+  --bpYellowDark: #EDA600;
   --bpCoral: #f26461;
   --bpNavShadow: #CFCFCF;
   --bpFooter: #5e5e5f;
@@ -127,6 +128,7 @@ body {
   border-width: 0 0 2px 0;
   text-align: center;
   font-size: 20px;
+  margin-bottom: 0.6em;
 }
 
 .bp-form-button {
@@ -148,6 +150,13 @@ body {
 .bp-form-button:hover {
   background-color: var(--bpPurple);
   box-shadow: 0 0 0 0;
+}
+
+.bp-inputMsg em,
+.bp-inputMsg i {
+  color: var(--bpYellowDark);
+  font-weight: bold;
+  font-size: 12px;
 }
 
 /*********************** 

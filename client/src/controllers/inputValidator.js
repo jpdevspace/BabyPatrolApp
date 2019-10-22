@@ -1,4 +1,4 @@
-export const validateMinLength = (str, minLength) => str && str.length > minLength;
+export const validateMinLength = (str, minLength) => str && str.length >= minLength;
 
 export const pwdMatch = (pwdA, pwdB) => {
   return (

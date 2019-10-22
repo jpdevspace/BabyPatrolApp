@@ -47,29 +47,13 @@ const Register = props => {
       )
         .then(uid => userLoggedIn(uid))
         .catch(err => console.error(`Error at registerUser() [Register.jsx]`));
-    }
-
-    if (!validEmail) {
-      console.log("invalid email");
+    } else {
       setValidationErrors({
-        ...validationErrors,
-        email: "Your email looks too short."
-      });
-    }
-
-    if (!validPwdLength) {
-      console.log("invalid pwd length");
-      setValidationErrors({
-        ...validationErrors,
-        password: "Your password needs to be at least 6 characters long."
-      });
-    }
-
-    if (!validPwdMatch) {
-      console.log("invalid pwdMatch");
-      setValidationErrors({
-        ...validationErrors,
-        confirmPassword: "Passwords do not match."
+        email: validEmail ? false : "Your email looks too short.",
+        password: validPwdLength
+          ? false
+          : "Your password needs to be at least 6 characters long.",
+        confirmPassword: validPwdMatch ? false : "Passwords do not match."
       });
     }
   };
@@ -109,9 +93,12 @@ const Register = props => {
           aria-label="Email"
           required
         />
-        <span className="bp-inputMsg">
-          {validationErrors.email ? validationErrors.email : null}
-        </span>
+        {validationErrors.email ? (
+          <span className="bp-inputMsg">
+            <i class="fas fa-exclamation-circle"></i>
+            <em> {validationErrors.email} </em>
+          </span>
+        ) : null}
 
         <input
           onChange={handleInputChange}
@@ -125,9 +112,12 @@ const Register = props => {
           required
           //minLength="6"
         />
-        <span className="bp-inputMsg">
-          {validationErrors.password ? validationErrors.password : null}
-        </span>
+        {validationErrors.password ? (
+          <span className="bp-inputMsg">
+            <i class="fas fa-exclamation-circle"></i>
+            <em> {validationErrors.password} </em>
+          </span>
+        ) : null}
 
         <input
           onChange={handleInputChange}
@@ -141,11 +131,12 @@ const Register = props => {
           //minLength="6"
           required
         />
-        <span className="bp-inputMsg">
-          {validationErrors.confirmPassword
-            ? validationErrors.confirmPassword
-            : null}
-        </span>
+        {validationErrors.confirmPassword ? (
+          <span className="bp-inputMsg">
+            <i class="fas fa-exclamation-circle"></i>
+            <em> {validationErrors.confirmPassword} </em>
+          </span>
+        ) : null}
 
         <input className="bp-form-button" type="submit" value="REGISTER" />
       </form>
