@@ -30,7 +30,7 @@ const Register = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    //const formValidated = true; // TODO JP: password length, all fields filled, etc...
+
     const validEmail = validateMinLength(registerInfo.email, 9);
     const validPwdLength = validateMinLength(registerInfo.password, 6);
     const validPwdMatch = pwdMatch(

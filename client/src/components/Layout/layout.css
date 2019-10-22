@@ -2,6 +2,7 @@
   --bpPurple: #5C31BF;
   --bpPurpleLight: #996EFB;
   --bpButtonShadow: #B0ACAC;
+  --bpWidgetButtonShadow: rgba(122, 122, 122, 0.71);
   --bpYellow: #FFE200;
   --bpYellowDark: #EDA600;
   --bpCoral: #f26461;
@@ -199,6 +200,12 @@ footer * {
 /*********************** 
       Breakpoints 
 ************************/
+/* @media only screen and (min-width: 500px) {
+  #bp-eventWidget {
+
+  }
+} */
+
 @media only screen and (min-width: 875px) {
   #bp-bodyWrapper {
     width: 65%;
