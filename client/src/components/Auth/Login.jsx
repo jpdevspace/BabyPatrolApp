@@ -35,9 +35,7 @@ const Login = props => {
           }
         })
         .catch(err => {
-          console.log(err.message);
           setValidationErrors(err.message);
-          console.error(`Error at loginUserToFirebase() [Login.jsx]`);
         });
     } else {
       setValidationErrors("Please fill all necessary fields");

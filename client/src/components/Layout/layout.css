@@ -163,8 +163,13 @@ body {
 }
 
 /*********************** 
-      Login 
+    Login / Register
 ************************/
+#bp-loginPage form h1,
+#bp-registerPage form h1 {
+  font-family: 'Mansalva', cursive;
+}
+
 #bp-loginPage form,
 #bp-registerPage form {
   display: flex;
