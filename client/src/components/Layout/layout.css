@@ -154,7 +154,9 @@ body {
 }
 
 .bp-inputMsg em,
-.bp-inputMsg i {
+.bp-inputMsg i,
+.bp-loginErrorMsg em,
+.bp-loginErrorMsg i {
   color: var(--bpYellowDark);
   font-weight: bold;
   font-size: 12px;

@@ -129,8 +129,13 @@ export const registerUser = (email, password, babyName) => {
 export const loginUserToFirebase = (email, password) => {
   return firebase.auth().signInWithEmailAndPassword(email, password)
     .catch(err => {
-      console.error(`Error at loginUser() \n Error Code: ${err.code} \n Msg: ${err.message}`)
-      return false;
+      if (err.code === "auth/wrong-password") {
+        throw new Error("Hmmm, looks that's not your password. Try again please.");
+      } else if (err.code === "auth/invalid-email" || err.code === "auth/user-not-found") {
+        throw new Error("We've never seen that email before. Please double-check.");
+      } else {
+        throw new Error("Hmmm... something's please try again in a couple of minutes.");
+      }
     })
 }
 

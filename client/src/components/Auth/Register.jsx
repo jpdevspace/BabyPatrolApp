@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import { Redirect } from "react-router-dom";
 import { validateMinLength, pwdMatch } from "../../controllers/inputValidator";
-import "./auth.css";
 
 import { registerUser } from "../../controllers/firebaseDB";
 
@@ -95,7 +94,7 @@ const Register = props => {
         />
         {validationErrors.email ? (
           <span className="bp-inputMsg">
-            <i class="fas fa-exclamation-circle"></i>
+            <i className="fas fa-exclamation-circle"></i>
             <em> {validationErrors.email} </em>
           </span>
         ) : null}
@@ -114,7 +113,7 @@ const Register = props => {
         />
         {validationErrors.password ? (
           <span className="bp-inputMsg">
-            <i class="fas fa-exclamation-circle"></i>
+            <i className="fas fa-exclamation-circle"></i>
             <em> {validationErrors.password} </em>
           </span>
         ) : null}
@@ -133,7 +132,7 @@ const Register = props => {
         />
         {validationErrors.confirmPassword ? (
           <span className="bp-inputMsg">
-            <i class="fas fa-exclamation-circle"></i>
+            <i className="fas fa-exclamation-circle"></i>
             <em> {validationErrors.confirmPassword} </em>
           </span>
         ) : null}
