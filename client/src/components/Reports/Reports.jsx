@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from "react";
+import React, { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import { Redirect } from "react-router-dom";
 import { BabyRecordsContext } from "../../contexts/BabyRecordsContext";
@@ -11,11 +11,11 @@ const Reports = props => {
   const { isAuthed } = useContext(AuthContext);
 
   return (
-    <Fragment>
+    <div id="bp-reports">
       {!isAuthed ? <Redirect to="/login" /> : null}
-      <h1>Reports</h1>
+      <h1 id="bp-reportsTitle">Reports</h1>
       <ReportTable data={babyRecords} />
-    </Fragment>
+    </div>
   );
 };
 

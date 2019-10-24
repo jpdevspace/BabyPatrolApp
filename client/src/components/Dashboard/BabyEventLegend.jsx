@@ -6,7 +6,7 @@ class BabyEventLegend extends Component {
 
     return (
       <span className="bp-fromNowLegend">
-        <i class="fas fa-history"></i>
+        <i className="fas fa-history"></i>
         {agoString}
       </span>
     );
