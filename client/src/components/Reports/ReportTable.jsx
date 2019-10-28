@@ -7,17 +7,15 @@ const ReportTable = ({ data }) => {
   const getEmoji = activityString =>
     activities.filter(act => act.label === activityString)[0].icon;
 
-  let rows = (
-    <tr>
-      <td>Loading...</td>
-    </tr>
-  );
+  let content = <h2>Loading...</h2>;
+  let rows = null;
 
   if (!data || data.length === 0) {
-    rows = (
-      <tr>
-        <td>No data available</td>
-      </tr>
+    content = (
+      <h2>
+        No data available. Try adding a few events in the{" "}
+        <a href="/dashboard">dashboard</a>
+      </h2>
     );
   }
 
@@ -53,6 +51,10 @@ const ReportTable = ({ data }) => {
         );
       }
     });
+  }
+
+  if (!rows) {
+    return <>{content}</>;
   }
 
   return (
