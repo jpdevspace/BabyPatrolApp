@@ -12,6 +12,7 @@ You know, the usual suspects.
 ## Visit https://www.babypatrol.io
 
 ![alt text][screenshot]
+
 [screenshot]: https://i.imgur.com/o8jvbai.png "Screenshot of Baby Patrol App"
 
 ## Comments
