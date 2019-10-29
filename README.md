@@ -13,7 +13,11 @@ You know, the usual suspects.
 
 ![alt text][screenshot]
 
-[screenshot]: https://i.imgur.com/o8jvbai.png "Screenshot of Baby Patrol App"
+[screenshot]: https://i.imgur.com/o8jvbai.png "Screenshot of Baby Patrol's Dashboard"
+
+![alt text][screenshot2]
+
+[screenshot2]: https://i.imgur.com/A5wrAU1.png "Screenshot of Baby Patrol's Reports"
 
 ## Comments
 This app was created using:
