@@ -2,9 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import BabyRecordsContextProvider from "./contexts/BabyRecordsContext";
 import AuthContextProvider from "./contexts/AuthContext";
-import "./App.css";
 
-// Components
 import Home from "./components/Layout/Home";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Layout from "./components/Layout/Layout";
