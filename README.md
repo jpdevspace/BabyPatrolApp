@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/005d636a-472b-4771-adbb-4ae8ae243f57/deploy-status)](https://app.netlify.com/sites/babypatrol/deploys)
+
 # Baby Patrol
 
 This is an app to help new parents keep track of their baby's activities, such as:
@@ -23,3 +25,4 @@ You know, the usual suspects.
 This app was created using:
 * [React](https://reactjs.org)
 * [Firebase](https://firebase.google.com)
+* [Netlify](https://www.netlify.com)
