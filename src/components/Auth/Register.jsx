@@ -38,7 +38,6 @@ const Register = props => {
     );
 
     if (validEmail && validPwdLength && validPwdMatch) {
-      console.log("Valid");
       registerUser(
         registerInfo.email,
         registerInfo.password,

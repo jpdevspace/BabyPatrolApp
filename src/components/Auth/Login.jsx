@@ -25,7 +25,6 @@ const Login = props => {
     if (loginInfo.email.length && loginInfo.password.length) {
       loginUserToFirebase(loginInfo.email, loginInfo.password)
         .then(res => {
-          console.log("res >>>", res);
           if (res.user.uid) {
             userLoggedIn(res.user.uid);
           } else {
