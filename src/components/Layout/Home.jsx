@@ -8,8 +8,8 @@ const Home = props => {
       </div>
       <p>
         As a parent, keeping track of everything about your baby can be
-        overwhelming. With <strong id="baby-patrol">Baby Patrol</strong> is easy
-        to keep track of some of the most important activities.
+        overwhelming. With <strong id="baby-patrol">Baby Patrol</strong> it's
+        easy to keep track of some of the most important activities.
       </p>
       <ul>
         <li>
@@ -39,7 +39,7 @@ const Home = props => {
       </ul>
       <p>
         Have the records ready for your next doctor's appointment, or to try to
-        find out why is your baby crying
+        find out why your baby is crying
       </p>
     </div>
   );
