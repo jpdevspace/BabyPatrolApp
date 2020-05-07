@@ -9,7 +9,7 @@ const Layout = props => {
   return (
     <>
       <NavBar />
-      <div id="bp-bodyWrapper">{props.children}</div>
+      <div>{props.children}</div>
       <Footer />
     </>
   );

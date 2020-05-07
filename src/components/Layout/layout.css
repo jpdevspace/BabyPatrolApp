@@ -6,7 +6,7 @@
   --bpYellow: #FFE200;
   --bpYellowDark: #EDA600;
   --bpCoral: #f26461;
-  --bpNavShadow: #CFCFCF;
+  --bpNavShadow: rgb(172, 172, 172);
   --bpFooter: #5e5e5f;
   --bpMutedText: #aeaeae;
 }
@@ -43,7 +43,7 @@ nav a {
 }
 
 #bp-nav-babyPatrolText {
-  font-family: 'Mansalva', cursive;
+  font-family: 'Quicksand', sans-serif;
   font-size: 24px;
   margin: 0;
 }
@@ -71,8 +71,8 @@ nav a {
       Body 
 ************************/
 body {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 18px;
 }
 
 #bp-bodyWrapper {
@@ -87,17 +87,28 @@ body {
 }
 
 #bp-landingPageContainer {
+  width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  line-height: 2em;
-
+  align-items: flex-end;
+  line-height: 1.5;
+  background-image: url("../../assets/babyandteddybear.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #bp-landingPageContainer ul {
   list-style: none;
   padding: 0;
+  text-align: center;
+}
+
+#bp-landingPageContainer ul li {
+  display: inline-block;
+  margin-right: 0.5em;
 }
 
 #bp-landingPageContainer ul span {
@@ -105,18 +116,25 @@ body {
 }
 
 #bp-landingPage-welcome {
-  border: double var(--bpYellow);
-  border-width: 0 0 10px 0;
+  background-color: var(--bpPurpleLight);
+  border-radius: 25px;
+  padding: 1em 2em;
+  box-shadow: 3px 2px 5px 2px var(--bpNavShadow);
+  width: 90%;
+  margin: 0 auto;
+  font-size: 14px;
+
 }
 
-#bp-landingPage-welcome > h1 {
-  font-size: 3em;
-  font-family: 'Mansalva', cursive;
-  color: var(--bpCoral);
+
+#bp-landingPage-welcome p,
+#bp-landingPage-welcome li,
+#bp-landingPage-welcome #baby-patrol {
+  color: #FFF;
 }
 
 #baby-patrol {
-  font-family: 'Mansalva', cursive;
+  font-family: 'Quicksand', sans-serif;
   font-size: 120%;
 }
 
@@ -169,7 +187,7 @@ body {
 #bp-loginPage form h1,
 #bp-registerPage form h1,
 #bp-reportsTitle {
-  font-family: 'Mansalva', cursive;
+  font-family: 'Quicksand', sans-serif;
 }
 
 #bp-loginPage form,
@@ -257,5 +275,11 @@ footer * {
 @media only screen and (min-width: 875px) {
   #bp-bodyWrapper {
     width: 65%;
+  }
+
+  #bp-landingPage-welcome {
+    font-size: 16px;
+    width: 450px;
+    margin-right: 4em;
   }
 }
