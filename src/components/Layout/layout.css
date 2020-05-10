@@ -93,13 +93,13 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: flex-end;
   line-height: 1.5;
-  background-image: url("../../assets/babyandteddybear.jpg");
-  background-position: center center;
+  background-image: url("../../assets/teddybearandclouds.jpg");
+  background-position: center top;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
 }
 
 #bp-landingPageContainer ul {
@@ -119,13 +119,8 @@ body {
 
 #bp-landingPage-welcome {
   background-color: var(--bpPurpleLight);
-  border-radius: 25px;
   padding: 1em 2em;
-  box-shadow: 3px 2px 5px 2px var(--bpNavShadow);
-  width: 90%;
-  margin: 0 auto;
-  font-size: 14px;
-
+  width: 100%;
 }
 
 
@@ -268,11 +263,14 @@ footer * {
 /*********************** 
       Breakpoints 
 ************************/
-/* @media only screen and (min-width: 500px) {
-  #bp-eventWidget {
 
+@media only screen and (min-width: 700px) {
+  #bp-landingPageContainer {
+    background-image: url("../../assets/babyandteddybear.jpg");
+    background-position: center center;
+    background-size: cover;
   }
-} */
+}
 
 @media only screen and (min-width: 875px) {
   #bp-bodyWrapper {
@@ -280,8 +278,13 @@ footer * {
   }
 
   #bp-landingPage-welcome {
-    font-size: 16px;
     width: 450px;
     margin-right: 4em;
+    border-radius: 25px;
+    box-shadow: 3px 2px 5px 2px var(--bpNavShadow);
+  }
+
+  #bp-landingPageContainer {
+    justify-content: center;
   }
 }
