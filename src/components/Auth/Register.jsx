@@ -4,20 +4,27 @@ import { Redirect } from "react-router-dom";
 import { validateMinLength, pwdMatch } from "../../controllers/inputValidator";
 
 import { registerUser } from "../../controllers/firebaseDB";
+import CountriesList from "./CountriesList";
 
 const Register = props => {
   const { isAuthed, userLoggedIn } = useContext(AuthContext);
   const [registerInfo, setRegisterInfo] = useState({
+    firstName: "",
+    lastName: "",
+    country: "",
     email: "",
     password: "",
     confirmPassword: "",
     babyName: ""
   });
   const [validationErrors, setValidationErrors] = useState({
+    firstName: false,
+    lastName: false,
+    country: false,
     email: false,
     password: false,
     confirmPassword: false,
-    babyName: false
+    babyName: false,
   });
 
   const handleInputChange = e => {
@@ -65,8 +72,33 @@ const Register = props => {
   return (
     <div id="bp-registerPage">
       {redirectAuthedUser()}
+      <h1 className="h3 mb-3 font-weight-normal">
+        Create Your BabyPatrol Account
+      </h1>
       <form className="form-register" onSubmit={handleSubmit}>
-        <h1 className="h3 mb-3 font-weight-normal">Register</h1>
+        {/* <input
+          onChange={handleInputChange}
+          id="firstName"
+          className="bp-userInput"
+          type="firstName"
+          name="firstName"
+          value={registerInfo.firstName}
+          placeholder="First Name"
+          aria-label="First Name"
+          required
+          autoFocus
+        />
+        <input
+          onChange={handleInputChange}
+          id="lastName"
+          className="bp-userInput"
+          type="lastName"
+          name="lastName"
+          value={registerInfo.lastName}
+          placeholder="Last Name"
+          aria-label="Last Name"
+          required
+        /> */}
         <input
           onChange={handleInputChange}
           id="babyName"
@@ -77,9 +109,8 @@ const Register = props => {
           placeholder="Baby's Name"
           aria-label="Baby's Name"
           required
-          autoFocus
         />
-
+        {/* <CountriesList selection={handleInputChange} /> */}
         <input
           onChange={handleInputChange}
           id="email"
@@ -97,7 +128,6 @@ const Register = props => {
             <em> {validationErrors.email} </em>
           </span>
         ) : null}
-
         <input
           onChange={handleInputChange}
           id="password"
@@ -116,7 +146,6 @@ const Register = props => {
             <em> {validationErrors.password} </em>
           </span>
         ) : null}
-
         <input
           onChange={handleInputChange}
           id="confirmPassword"
@@ -135,7 +164,6 @@ const Register = props => {
             <em> {validationErrors.confirmPassword} </em>
           </span>
         ) : null}
-
         <input className="bp-form-button" type="submit" value="REGISTER" />
       </form>
     </div>

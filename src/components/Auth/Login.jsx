@@ -49,9 +49,9 @@ const Login = props => {
 
   return (
     <div id="bp-loginPage">
-      {redirectAuthedUser()}
+      { redirectAuthedUser() }
+      <h1>Please Sign In To Your BabyPatrol Account</h1>
       <form className="bp-form-login" onSubmit={handleSubmit}>
-        <h1>Login</h1>
         {validationErrors ? (
           <span className="bp-loginErrorMsg">
             <i className="fas fa-exclamation-circle"></i>
