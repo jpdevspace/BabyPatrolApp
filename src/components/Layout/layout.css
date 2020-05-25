@@ -304,6 +304,7 @@ footer * {
   #bp-loginPage form,
   #bp-registerPage form {
     width: 65%;
+    max-width: 650px;
   }
 }
 
