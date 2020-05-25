@@ -4,7 +4,7 @@ import { Redirect } from "react-router-dom";
 import { validateMinLength, pwdMatch } from "../../controllers/inputValidator";
 
 import { registerUser } from "../../controllers/firebaseDB";
-import CountriesList from "./CountriesList";
+//import CountriesList from "./CountriesList";
 
 const Register = props => {
   const { isAuthed, userLoggedIn } = useContext(AuthContext);
