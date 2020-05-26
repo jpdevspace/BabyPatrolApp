@@ -232,7 +232,7 @@ body {
       Reports 
 ************************/
 #bp-reports {
-  height: 90%;
+  height: 800px;
   width: 100%;
   display: flex;
   flex-flow: column;
@@ -242,6 +242,14 @@ body {
 
 #bp-reports table {
   empty-cells: show;
+}
+
+#bp-report-tableContainer {
+  max-height: 650px;
+  padding: 0 2em 0;
+  overflow-y: scroll;
+  box-shadow: 4px 5px 15px 5px #dddddd;
+  margin-top: 6em;
 }
 
 #bp-reports th {

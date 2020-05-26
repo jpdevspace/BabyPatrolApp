@@ -37,7 +37,7 @@ const ReportTable = ({ data }) => {
         return (
           <>
             <tr key={i}>
-              <td colspan="4" className="bp-table-dateCell">
+              <td colSpan="4" className="bp-table-dateCell">
                 {format(row.time.toDate(), "dddd, MMM D / YYYY")}
               </td>
             </tr>
@@ -58,17 +58,19 @@ const ReportTable = ({ data }) => {
   }
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th></th>
-          <th>Time</th>
-          <th>Activity</th>
-          <th>Icon</th>
-        </tr>
-      </thead>
-      <tbody>{rows}</tbody>
-    </table>
+    <div id="bp-report-tableContainer">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Time</th>
+            <th>Activity</th>
+            <th>Icon</th>
+          </tr>
+        </thead>
+        <tbody>{rows}</tbody>
+      </table>
+    </div>
   );
 };
 

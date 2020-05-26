@@ -39,6 +39,10 @@
   box-shadow: 0 0 0 0;
 }
 
+.bp-eventWidget button:active {
+  opacity: 0.5;
+}
+
 .bp-eventWidget button h2 {
   font-size: 2em;
 }
