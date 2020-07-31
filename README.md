@@ -13,13 +13,17 @@ You know, the usual suspects.
 
 ## Visit https://www.babypatrol.io
 
-![alt text][screenshot]
+![alt text][screenshot1]
 
-[screenshot]: https://i.imgur.com/o8jvbai.png "Screenshot of Baby Patrol's Dashboard"
+[screenshot1]: https://i.imgur.com/CRAOvwg.png "Screenshot of Baby Patrol's Landing Page"
 
 ![alt text][screenshot2]
 
-[screenshot2]: https://i.imgur.com/A5wrAU1.png "Screenshot of Baby Patrol's Reports"
+[screenshot2]: https://i.imgur.com/lgN6lxj.png "Screenshot of Baby Patrol's Login Page"
+
+![alt text][screenshot3]
+
+[screenshot3]: https://i.imgur.com/jNTCEP3.png "Screenshot of Baby Patrol's Dashboard"
 
 ## Comments
 This app was created using:
