@@ -15,6 +15,7 @@ const Dashboard = props => {
 
   useEffect(() => {
     loadAllUserData();
+    // eslint-disable-next-line
   }, []);
 
   return (

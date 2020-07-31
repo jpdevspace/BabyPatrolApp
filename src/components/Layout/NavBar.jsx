@@ -14,6 +14,7 @@ const NavBar = props => {
     } else {
       userLoggedOut();
     }
+    // eslint-disable-next-line
   }, [isAuthed]);
 
   let navLinks = (
