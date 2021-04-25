@@ -4,7 +4,7 @@ import 'firebase/auth';
 
 // Initialize Firebase
 const config = {
-  apiKey: process.env.REACT_APP_FIREBASE_KEY,
+  apiKey: "AIzaSyATYA5g7ShVwfVxDs9B23IXw7hN_xH2Hxg",
   authDomain: "babytimes-9476d.firebaseapp.com",
   databaseURL: "https://babytimes-9476d.firebaseio.com",
   projectId: "babytimes-9476d",
