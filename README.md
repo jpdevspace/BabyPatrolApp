@@ -11,7 +11,7 @@ This is an app to help new parents keep track of their baby's activities, such a
 
 You know, the usual suspects.
 
-## Visit https://www.babypatrol.io
+## Visit https://babypatrol.netlify.app
 
 ![alt text][screenshot1]
 
@@ -25,8 +25,9 @@ You know, the usual suspects.
 
 [screenshot3]: https://i.imgur.com/jNTCEP3.png "Screenshot of Baby Patrol's Dashboard"
 
-## Comments
+## Tech
 This app was created using:
-* [React](https://reactjs.org)
-* [Firebase](https://firebase.google.com)
-* [Netlify](https://www.netlify.com)
+* [React](https://reactjs.org): Using hooks and the context api.
+* [Firebase](https://firebase.google.com): Handles the data and user authentication.
+* [Netlify](https://www.netlify.com): The app is deployed here. I chose it because setting up the build process and continuous deployment was very easy. As soon as I push any changes to the github repo, Netlify automatically runs `npm run build` on my project and publishes the (newly created) `build/` folder.
+
