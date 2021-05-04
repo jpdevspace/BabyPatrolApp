@@ -38,7 +38,7 @@ const ReportTable = ({ data }) => {
           <>
             <tr key={i}>
               <td colSpan="4" className="bp-table-dateCell">
-                {format(row.time.toDate(), "dddd, MMM d / yyyy")}
+                {format(row.time.toDate(), "eeee, MMM d / yyyy")}
               </td>
             </tr>
             <tr>
